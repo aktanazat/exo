@@ -416,7 +416,8 @@ adapters_process_running() {
     return 1
   fi
   command_line="$(ps -p "$pid" -o command= 2>/dev/null || true)"
-  [[ "$command_line" == "$EXO_BIN serve "* && "$command_line" == *" --adapters-only"* ]]
+  [[ "$command_line" == "$EXO_BIN run "* && "$command_line" == *" --serve "* &&
+    "$command_line" == *" --adapters-only"* ]]
 }
 
 adapter_source_newer_than() {
